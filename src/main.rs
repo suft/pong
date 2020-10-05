@@ -12,16 +12,16 @@ const APP_AUTHOR: &str = "Sufien Tout";
 const APP_WIDTH: f32 = 800.0;
 const APP_HEIGHT: f32 = 600.0;
 
-struct MainState {}
+struct App {}
 
-impl MainState {
-    pub fn new(_ctx: &mut Context) -> GameResult<MainState> {
-        let s = MainState {};
-        Ok(s)
+impl App {
+    pub fn new(_ctx: &mut Context) -> GameResult<App> {
+        let a = App {};
+        Ok(a)
     }
 }
 
-impl EventHandler for MainState {
+impl EventHandler for App {
     fn update(&mut self, _ctx: &mut Context) -> GameResult<()> {
         Ok(())
     }
@@ -40,6 +40,6 @@ fn main() -> GameResult<()> {
         .conf(config)
         .build()
         .expect("Context and EventLoop construction failed.");
-    let state = &mut MainState::new(&mut ctx).expect("MainState construction failed.");
-    event::run(&mut ctx, &mut event_loop, state)
+    let app = &mut App::new(&mut ctx).expect("App construction failed.");
+    event::run(&mut ctx, &mut event_loop, app)
 }
